@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>永恒的计时器计时器</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0a0f3d, #121b5e, #1a237e);
+            color: #e0f7fa;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            width: 100%;
+        }
+        
+        h1 {
+            font-size: 48px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px #00bcd4, 0 0 20px #00838f;
+            background: linear-gradient(to right, #4fc3f7, #00bcd4, #00acc1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+        
+        .subtitle {
+            font-size: 20px;
+            opacity: 0.8;
+            letter-spacing: 1px;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .timer-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 20px;
+        }
+        
+        .timer-card {
+            background: rgba(8, 12, 45, 0.8);
+            border-radius: 15px;
+            padding: 25px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 0 20px rgba(0, 60, 120, 0.5);
+            border: 1px solid rgba(0, 120, 215, 0.6);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .timer-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .timer-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 100, 200, 0.15) 0%, transparent 70%);
+            z-index: -1;
+        }
+        
+        .timer-title {
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 0 0 8px #0088ff;
+            letter-spacing: 1px;
+            font-weight: 600;
+            color: #4fc3f7;
+        }
+        
+        .timer-description {
+            text-align: center;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            color: #a8e6f7;
+        }
+        
+        .timer-link {
+            display: block;
+            text-align: center;
+            background: linear-gradient(45deg, #006064, #00838f, #00bcd4);
+            color: white;
+            padding: 12px 0;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(0, 188, 212, 0.5);
+        }
+        
+        .timer-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(0, 188, 212, 0.8);
+        }
+        
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+            font-size: 14px;
+            color: #81d4fa;
+        }
+        
+        @media (max-width: 768px) {
+            .timer-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            h1 {
+                font-size: 36px;
+            }
+            
+            .subtitle {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    
+    <div class="header">
+        <h1>宇宙周期计时器</h1>
+        <div class="subtitle">
+            体验超长尺度的计时系统。选择您感兴趣的计时器开始探索！
+        </div>
+    </div>
+    
+    <div class="timer-cards">
+        <div class="timer-card">
+            <div class="timer-title">十年周期计时器</div>
+            <p class="timer-description">
+                十年周期计时器以10年为一个完整周期，精确计算宇宙时间尺度下的秒、时、天、月和年。
+                一旦启动，它将持续运行，即使关闭页面也不会停止。
+            </p>
+            <a href="decade-timer.html" class="timer-link">启动十年计时器</a>
+        </div>
+        
+        <div class="timer-card">
+            <div class="timer-title">百年周期计时器</div>
+            <p class="timer-description">
+                百年周期计时器跨越世纪尺度，完整展现100年周期的时间流逝。
+                计时器启动后无法停止，将持续运行并记录您的时间旅程。
+            </p>
+            <a href="century-timer.html" class="timer-link">启动百年计时器</a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>宇宙周期计时器 &copy; 2023 | 探索时间与空间的奥秘</p>
+    </footer>
+
+    <script>
+        // 创建星空背景
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const starCount = 200;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                // 随机位置
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                star.style.left = `${x}vw`;
+                star.style.top = `${y}vh`;
+                
+                // 随机大小
+                const size = Math.random() * 2 + 0.5;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                
+                // 随机动画延迟
+                star.style.animationDelay = `${Math.random() * 5}s`;
+                
+                starsContainer.appendChild(star);
+            }
+        }
+        
+        // 初始化
+        window.onload = function() {
+            createStars();
+        };
+    </script>
+</body>
+</html>
